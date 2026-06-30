@@ -2,8 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - Building
+  - Castle
+  - Resource
+  - Road
+  - Grid
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -11,15 +18,15 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Terrain
+  - Building
+  - Enemy
+  - Projectile
+  - Resource
+  - Road
+  - Grid
+  - Fog
+  - Castle
   - 
   - 
   - 
@@ -41,6 +48,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI
+    uniqueID: 3527570349
+    locked: 0
+  - name: Effects
+    uniqueID: 3797054317
+    locked: 0
+  - name: WorldUI
+    uniqueID: 683946523
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
@@ -50,27 +66,4 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  m_MigratedRenderPipelines: []
