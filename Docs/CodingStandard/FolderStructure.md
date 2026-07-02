@@ -1,86 +1,101 @@
-# Folder Structure
+# Folder Structure Guide
 
 **Project:** Hrafnar Tower Defense
 
-**Document Version:** 1.0
+**Document Version:** 2.0
 
 ---
 
 # Table of Contents
 
 1. Overview
-2. Repository Structure
-3. Unity Project Structure
-4. Scripts Structure
-5. ScriptableObjects Structure
-6. Art Structure
-7. Audio Structure
-8. Prefabs Structure
-9. Scenes Structure
-10. UI Structure
-11. Resources Folder
-12. StreamingAssets Folder
-13. Editor Folder
-14. Tests Structure
-15. Rules
-16. Common Mistakes
-17. Related Documentation
+2. Design Philosophy
+3. Root Project Structure
+4. Unity Project Structure
+5. Scripts Architecture
+6. Feature Modules
+7. Core
+8. Managers
+9. UI
+10. ScriptableObjects
+11. Resources
+12. Editor
+13. Tests
+14. Creating New Features
+15. Folder Creation Rules
+16. File Organization Rules
+17. Growth Strategy
+18. Examples
+19. Code Review Checklist
+20. Related Documentation
 
 ---
 
 # 1. Overview
 
-This document defines the official folder structure for the project.
+This document defines the official folder structure used throughout the project.
 
-The goals are:
+The project follows a **Feature-Based Architecture**, where every gameplay mechanic is implemented as an independent module.
 
-- Predictable organization
-- Easy navigation
-- Scalability
-- Clear ownership
-- Consistency across the team
+The folder structure is designed to be:
 
-Every new asset and script should be placed in its appropriate location.
+- Scalable
+- Easy to navigate
+- Easy to maintain
+- Consistent
+- Suitable for long-term development
 
 ---
 
-# 2. Repository Structure
+# 2. Design Philosophy
+
+The project is organized around **features**, not file types.
+
+Instead of grouping files by their technical role (all systems together, all components together), each gameplay mechanic owns everything related to itself.
+
+This keeps code highly cohesive and minimizes dependencies between different gameplay systems.
+
+---
+
+# 3. Root Project Structure
+
+Repository structure:
 
 ```text
-Repository/
+Repository
 │
-├── Docs/
-├── AssetsSource/
 ├── UnityProject/
-├── LICENSE
+├── AssetsSource/
+├── Docs/
+├── .github/
+├── .gitignore
 ├── README.md
-└── .gitignore
+└── LICENSE
 ```
 
-### Description
+## UnityProject/
 
-| Folder | Purpose |
-|---------|---------|
-| Docs | Project documentation |
-| AssetsSource | Source files (Blender, concepts, PSD, references) |
-| UnityProject | Unity project |
-| README.md | Project overview |
-| LICENSE | Project license |
+Contains the Unity project.
+
+## AssetsSource/
+
+Contains original source assets.
+
+Examples:
+
+- Blender
+- PSD
+- Krita
+- References
+- Logos
+
+## Docs/
+
+Contains all project documentation.
 
 ---
 
-# 3. Unity Project Structure
-
-```text
-UnityProject/
-│
-├── Assets/
-├── Packages/
-├── ProjectSettings/
-└── UserSettings/
-```
-
-Inside **Assets/**
+# 4. Unity Project Structure
 
 ```text
 Assets/
@@ -88,255 +103,247 @@ Assets/
 ├── Art/
 ├── Audio/
 ├── Materials/
+├── Models/
 ├── Prefabs/
+├── Resources/
 ├── Scenes/
-├── Scripts/
 ├── ScriptableObjects/
+├── Scripts/
 ├── Settings/
+├── Shaders/
+├── Textures/
 ├── UI/
-├── VFX/
-├── Fonts/
-├── Localization/
-├── Gizmos/
-├── Editor/
-├── Tests/
-└── Resources/
+└── VFX/
 ```
+
+Each top-level folder has a single responsibility.
+
+Avoid creating unnecessary top-level folders.
 
 ---
 
-# 4. Scripts Structure
+# 5. Scripts Architecture
 
 ```text
 Scripts/
 │
 ├── Core/
-│
 ├── Managers/
-│
-├── Systems/
-│
-├── Gameplay/
-│   ├── Buildings/
-│   ├── Enemies/
-│   ├── Projectiles/
-│   ├── Resources/
-│   ├── Waves/
-│   ├── Grid/
-│   ├── FogOfWar/
-│   └── Castle/
-│
+├── Features/
 ├── UI/
-│
-├── Utilities/
-│
+├── Editor/
 ├── Extensions/
-│
-└── Editor/
+└── Utilities/
 ```
 
-### Folder Descriptions
+Every folder has a clearly defined responsibility.
 
-**Core**
+---
 
-Core framework classes.
+# 6. Feature Modules
+
+Gameplay mechanics are implemented as Feature Modules.
 
 Examples:
-
-- Bootstrap
-- Service Locator (if used)
-- Event Bus
-- State Machine
-
----
-
-**Managers**
-
-Global managers.
-
-Examples:
-
-- GameManager
-- SceneManager
-- AudioManager
-- SaveManager
-
----
-
-**Systems**
-
-Gameplay systems.
-
-Examples:
-
-- GridSystem
-- ConstructionSystem
-- WaveSystem
-- ResourceSystem
-
----
-
-**Gameplay**
-
-Feature-specific behaviours and gameplay components.
-
----
-
-**UI**
-
-UI logic only.
-
----
-
-**Utilities**
-
-Reusable helper classes.
-
----
-
-**Extensions**
-
-Extension methods.
-
----
-
-# 5. ScriptableObjects Structure
 
 ```text
-ScriptableObjects/
+Features/
 │
 ├── Buildings/
+├── Camera/
+├── Castle/
 ├── Enemies/
-├── Towers/
-├── Resources/
-├── Waves/
-├── Audio/
-├── VFX/
-└── Settings/
-```
-
-Configuration assets should never be mixed with runtime scripts.
-
----
-
-# 6. Art Structure
-
-```text
-Art/
-│
-├── Buildings/
-├── Environment/
-├── Props/
-├── Characters/
-├── Terrain/
-├── Icons/
-└── Sprites/
-```
-
-Only imported Unity assets belong here.
-
-Source files remain in `AssetsSource/`.
-
----
-
-# 7. Audio Structure
-
-```text
-Audio/
-│
-├── Music/
-├── SFX/
-├── Ambient/
-├── UI/
-└── Voices/
-```
-
----
-
-# 8. Prefabs Structure
-
-```text
-Prefabs/
-│
-├── Buildings/
-├── Towers/
-├── Enemies/
-├── Environment/
-├── UI/
+├── FogOfWar/
+├── Grid/
 ├── Projectiles/
-└── Effects/
+├──Resources/
+├── Towers/
+└── Waves/
 ```
 
-Every reusable GameObject should exist as a Prefab.
+Each module owns everything related to its functionality.
+
+Typical structure:
+
+```text
+Feature/
+│
+├── Components/
+├── Controllers/
+├── Events/
+├── Factories/
+├── Interfaces/
+├── States/
+├── Systems/
+└── Views/
+```
+
+Additional folders may be added when required.
+
+Examples:
+
+```text
+Editor/
+Utilities/
+Debug/
+```
+
+Only create folders that are actually needed.
 
 ---
 
-# 9. Scenes Structure
+# 7. Core
+
+The Core folder contains shared infrastructure.
+
+Examples:
 
 ```text
-Scenes/
+Core/
 │
 ├── Bootstrap/
-├── Persistent/
-├── MainMenu/
-├── Gameplay/
-└── Testing/
+├── Events/
+├── Interfaces/
+├── Services/
+├── StateMachine/
+└── Utilities/
 ```
 
-Testing scenes should never be included in release builds.
+Core should never contain gameplay mechanics.
+
+Everything inside Core should be reusable across multiple systems.
 
 ---
 
-# 10. UI Structure
+# 8. Managers
+
+Managers coordinate global game services.
+
+Examples:
+
+```text
+Managers/
+│
+├── AudioManager
+├── GameManager
+├── SaveManager
+├── SceneManager
+└── UIManager
+```
+
+Managers:
+
+- coordinate
+- initialize
+- manage lifecycle
+
+Managers should **not** contain gameplay logic.
+
+---
+
+# 9. UI
+
+Contains all user interface code.
+
+Examples:
 
 ```text
 UI/
 │
 ├── HUD/
-├── Menus/
-├── Popups/
+├── MainMenu/
+├── PauseMenu/
+├── Settings/
 ├── Windows/
-├── Icons/
-└── Themes/
+└── Shared/
 ```
 
-Separate visual assets from UI scripts.
+Gameplay logic must never exist inside UI.
 
 ---
 
-# 11. Resources Folder
+# 10. ScriptableObjects
 
-The `Resources` folder should only be used when runtime loading through `Resources.Load()` is explicitly required.
+ScriptableObjects are divided into two categories.
 
-Avoid storing general assets inside `Resources`.
+```text
+ScriptableObjects/
+│
+├── Data/
+└── Config/
+```
 
----
+## Data
 
-# 12. StreamingAssets Folder
-
-Use `StreamingAssets` only for files that must remain unchanged after the build.
+Contains gameplay object definitions.
 
 Examples:
 
-- External configuration
-- Import/export templates
-- Third-party data
+```text
+Data/
+│
+├── Buildings/
+├── Enemies/
+├── Projectiles/
+├── Resources/
+├── Towers/
+├── Upgrades/
+└── Waves/
+```
+
+## Config
+
+Contains global system configuration.
+
+Examples:
+
+```text
+Config/
+│
+├── Audio/
+├── Camera/
+├── Economy/
+├── FogOfWar/
+├── Game/
+├── Grid/
+├── Input/
+└── Save/
+```
 
 ---
 
-# 13. Editor Folder
+# 11. Resources
 
-Editor-only scripts belong inside:
+Use the Resources folder only when runtime loading through Unity's Resources API is required.
+
+Avoid storing general assets inside Resources.
+
+Addressables should be preferred for future scalability.
+
+---
+
+# 12. Editor
+
+Contains Unity Editor tools.
+
+Examples:
 
 ```text
 Editor/
+│
+├── CustomInspectors/
+├── Editors/
+├── PropertyDrawers/
+└── Windows/
 ```
 
-These scripts must never be included in runtime assemblies.
+Editor scripts must never be included in runtime builds.
 
 ---
 
-# 14. Tests Structure
+# 13. Tests
+
+Testing structure:
 
 ```text
 Tests/
@@ -345,54 +352,159 @@ Tests/
 └── PlayMode/
 ```
 
-Tests should mirror the production folder structure whenever practical.
+Keep runtime tests separated from editor tests.
 
 ---
 
-# 15. Rules
+# 14. Creating New Features
 
+When implementing a new gameplay mechanic:
+
+1. Create a new Feature Module.
+2. Create Gameplay Data assets if needed.
+3. Create Config assets if needed.
+4. Implement systems.
+5. Add runtime components.
+6. Connect through events.
+7. Create UI only if required.
+8. Add documentation.
+
+Each feature should remain independent.
+
+---
+
+# 15. Folder Creation Rules
+
+Create folders only when needed.
+
+Avoid empty folders.
+
+Avoid speculative folders for future functionality.
+
+Prefer:
+
+```text
+Grid/
+└── Systems/
+```
+
+instead of:
+
+```text
+Grid/
+├── Components/
+├── Controllers/
+├──Factories/
+├──Interfaces/
+├──Views/
+└──Utilities/
+```
+
+when those folders are empty.
+
+The structure should evolve naturally as the project grows.
+
+---
+
+# 16. File Organization Rules
+
+General principles:
+
+- One responsibility per class.
 - One responsibility per folder.
-- Do not create miscellaneous folders such as `New`, `Temp`, or `Misc`.
+- One gameplay mechanic per Feature Module.
+- Keep related files together.
+- Minimize dependencies between modules.
+
+Move code instead of duplicating it.
+
+---
+
+# 17. Growth Strategy
+
+As the project grows:
+
+- Add new Feature Modules instead of expanding existing ones.
+- Keep modules independent.
+- Avoid large "miscellaneous" folders.
+- Refactor when folders become difficult to navigate.
 - Keep folder depth reasonable.
-- Use PascalCase.
-- Group related assets together.
-- Do not duplicate assets.
-- Remove unused folders when appropriate.
+
+The structure should support years of development without major reorganization.
 
 ---
 
-# 16. Common Mistakes
+# 18. Examples
 
-Avoid:
+Small Feature Module:
 
-- Mixing source files with Unity assets.
-- Placing scripts inside Art folders.
-- Using Resources unnecessarily.
-- Creating deeply nested folders.
-- Storing test assets in production folders.
-- Using inconsistent folder names.
+```text
+Grid/
+└── Systems/
+    └── GridSystem.cs
+```
+
+Medium Feature Module:
+
+```text
+Resources/
+│
+├── Events/
+├── Systems/
+└── Views/
+```
+
+Large Feature Module:
+
+```text
+Buildings/
+│
+├── Components/
+├── Controllers/
+├── Events/
+├── Factories/
+├── Interfaces/
+├── States/
+├── Systems/
+└── Views/
+```
+
+Modules should grow only as complexity increases.
 
 ---
 
-# 17. Related Documentation
+# 19. Code Review Checklist
+
+Before merging changes:
+
+- Correct folder placement.
+- No unnecessary folders.
+- No duplicated functionality.
+- Feature remains self-contained.
+- Shared code moved to Core.
+- Gameplay logic not placed in Managers.
+- Data stored in ScriptableObjects.
+- Folder names follow naming conventions.
+
+---
+
+# 20. Related Documentation
+
+Architecture
+
+- ../Architecture/
 
 Coding Standards
 
 - StyleGuide.md
 - Naming.md
 - BestPractices.md
-- ScriptableObjects.md
-- Performance.md
 - ArchitecturePatterns.md
-- Comments.md
+- ScriptableObjects.md
 
-Architecture
+Git
 
-- ../Architecture/
-
-Art Guide
-
-- ../ArtGuide/
+- ../Git/
 
 Gameplay
 
