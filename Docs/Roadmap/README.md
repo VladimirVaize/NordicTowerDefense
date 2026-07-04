@@ -21,8 +21,7 @@
    - Sprint16.md
    - Sprint17.md
    - Sprint18.md
-6. Sprint03.md (по мере появления)
-7. Backlog.md
-8. Changelog.md
-9. ReleasePlan.md
-10. README.md
+5. Backlog.md
+6. Changelog.md
+7. ReleasePlan.md
+8. README.md
