@@ -1,11 +1,28 @@
 1. Vision.md
 2. Roadmap.md
 3. Milestones.md
-4. Sprint00.md
-5. Sprint01.md
-6. Sprint02.md
-7. Sprint03.md (по мере появления)
-8. Backlog.md
-9. Changelog.md
-10. ReleasePlan.md
-11. README.md
+4. Sprints
+   - Sprint00.md
+   - Sprint01.md
+   - Sprint02.md
+   - Sprint03.md
+   - Sprint04.md
+   - Sprint05.md
+   - Sprint06.md
+   - Sprint07.md
+   - Sprint08.md
+   - Sprint09.md
+   - Sprint10.md
+   - Sprint11.md
+   - Sprint12.md
+   - Sprint13.md
+   - Sprint14.md
+   - Sprint15.md
+   - Sprint16.md
+   - Sprint17.md
+   - Sprint18.md
+6. Sprint03.md (по мере появления)
+7. Backlog.md
+8. Changelog.md
+9. ReleasePlan.md
+10. README.md
