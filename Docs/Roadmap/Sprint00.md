@@ -10,10 +10,10 @@ Roadmap Phase: Phase 1 — Foundation
 Milestone: 1.1 Project Initialization
 
 Estimated Duration: 1–2 Weeks
-Actual Duration: TBD
+Actual Duration: 1 Week
 
 Start Date: 30.06.2026
-End Date: TBD
+End Date: 06.07.2026
 
 Dependencies: None
 Next Sprint: Sprint 01 — Core Architecture
