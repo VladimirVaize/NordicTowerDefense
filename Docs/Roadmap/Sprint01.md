@@ -12,7 +12,7 @@ Milestone: 1.2 Core Architecture
 Estimated Duration: 2–3 Weeks
 Actual Duration: TBD
 
-Start Date: TBD
+Start Date: 06.07.2026
 End Date: TBD
 
 Dependencies: Sprint 00
