@@ -11,7 +11,7 @@ Milestone: 2.2 Building System
 Estimated Duration: 2–3 Weeks
 Actual Duration: TBD
 
-Start Date: TBD
+Start Date: 09.07.2026
 End Date: TBD
 
 Dependencies: Sprint 01
