@@ -10,10 +10,10 @@ Roadmap Phase: Phase 1 — Foundation
 Milestone: 1.2 Core Architecture
 
 Estimated Duration: 2–3 Weeks
-Actual Duration: 5 days
+Actual Duration: 4 days
 
 Start Date: 06.07.2026
-End Date: 11.07.2026
+End Date: 10.07.2026
 
 Dependencies: Sprint 00
 Next Sprint: Sprint 02 — Save & Configuration
