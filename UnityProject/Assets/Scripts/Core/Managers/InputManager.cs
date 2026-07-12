@@ -9,18 +9,20 @@ namespace NordicTowerDefense.Core.Managers
         [SerializeField] private LayerMask _placementLayermask;
 
         private Vector3 _lastPosition;
+        private Mouse _mouse = Mouse.current;
 
+        private void Awake()
+        {
+            if (_mouse == null)
+            {
+                Debug.LogError("Mause is not found!");
+                enabled = false;
+            }
+        }
 
         public Vector3 GetSelectedMapPosition()
         {
-            Mouse mouse = Mouse.current;
-            if(mouse == null)
-            {
-                return Vector3.zero;
-            }
-
-            Vector2 mousePosition = mouse.position.ReadValue();
-            //mousePosition.z = _mainCamera.nearClipPlane;
+            Vector2 mousePosition = _mouse.position.ReadValue();
             Ray ray = _mainCamera.ScreenPointToRay(mousePosition);
             RaycastHit hit;
 
