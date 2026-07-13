@@ -42,24 +42,24 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 1
-    - _Alpha_Clip_Threshold: 0.1
-    - _Brightness: 2
-    - _Height: 1.5
+    - _Alpha: 2
+    - _Alpha_Clip_Threshold: 0.05
+    - _Brightness: 5
+    - _Height: 2.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0.5
+    - _Speed: 0.2
     m_Colors:
-    - _Background: {r: 0.11405117, g: 0, b: 1, a: 1}
-    - _Background_Color: {r: 0.00000011920929, g: 0, b: 1, a: 1}
-    - _Base_Color: {r: 0, g: 0.24218762, b: 1, a: 1}
-    - _Highlight_Color: {r: 0, g: 0.63498926, b: 1, a: 1}
+    - _Background_Color: {r: 0.11405117, g: 0, b: 1, a: 1}
+    - _Base_Color: {r: 0, g: 0.5551646, b: 1, a: 1}
+    - _Highlight_Color: {r: 0, g: 0.8830582, b: 1, a: 1}
     - _Scroll_Direction_A: {r: 0, g: -0.2, b: 0, a: 0}
     - _Scroll_Direction_B: {r: 0.5, g: -0.5, b: 0, a: 0}
     - _Scroll_Direction_C: {r: -0.2, g: 0, b: 0, a: 0}
+    - _Scroll_Direction_D: {r: 0.2, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &2715264694400631184
+--- !u!114 &6243439239535714287
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
