@@ -45,7 +45,7 @@ Material:
     - _Alpha: 1
     - _Alpha_Clip_Threshold: 0.1
     - _Brightness: 2
-    - _Height: 0.5
+    - _Height: 1.5
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 0.5
