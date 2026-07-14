@@ -54,6 +54,9 @@
         },
         {
             "m_Id": "4cba1b8e4ce945b5a1351e80ff872a4e"
+        },
+        {
+            "m_Id": "b709a4bdb78b42d79aaa0e81364b27a2"
         }
     ],
     "m_Nodes": [
@@ -5524,18 +5527,6 @@
         },
         {
             "m_Id": "13af9427ea2842f3a67f88dba730db8f"
-        },
-        {
-            "m_Id": "2aa3424ca23c48ababda5e9b0c271ab2"
-        },
-        {
-            "m_Id": "5477793b32f4403286f3ddab4fed81cf"
-        },
-        {
-            "m_Id": "6bf0c056f83f4ba3b39f02ef168ea1c3"
-        },
-        {
-            "m_Id": "b397acd090244fda8591d5e9576c09fb"
         }
     ]
 }
@@ -9743,6 +9734,27 @@
     "m_DefaultValue": 0.0,
     "m_Labels": [],
     "m_LiteralMode": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "b709a4bdb78b42d79aaa0e81364b27a2",
+    "m_Name": "Scroll Direction",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "2aa3424ca23c48ababda5e9b0c271ab2"
+        },
+        {
+            "m_Id": "5477793b32f4403286f3ddab4fed81cf"
+        },
+        {
+            "m_Id": "6bf0c056f83f4ba3b39f02ef168ea1c3"
+        },
+        {
+            "m_Id": "b397acd090244fda8591d5e9576c09fb"
+        }
+    ]
 }
 
 {
