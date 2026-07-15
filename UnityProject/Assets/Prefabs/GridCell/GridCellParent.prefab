@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622602890786851442}
   m_Layer: 0
-  m_Name: CursorIndicatorParent
+  m_Name: GridCellParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

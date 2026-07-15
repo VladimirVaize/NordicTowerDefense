@@ -9,9 +9,20 @@ public class PlacementSystem : MonoBehaviour
 
     private void Update()
     {
-        Vector3 mousePosition = _inputManager.GetSelectedMapPosition();
-        Vector3Int gridPosition = _grid.WorldToCell(mousePosition);
-        _mouseIndicator.transform.position = mousePosition;
-        _cellIndicator.transform.position = _grid.CellToWorld(gridPosition);
+        
+
+        if (_inputManager.IsMap())
+        {
+            _cellIndicator.SetActive(true);
+
+            Vector3 mousePosition = _inputManager.GetSelectedMapPosition();
+            Vector3Int gridPosition = _grid.WorldToCell(mousePosition);
+            _mouseIndicator.transform.position = mousePosition;
+            _cellIndicator.transform.position = _grid.CellToWorld(gridPosition);
+        }
+        else
+        {
+            _cellIndicator.SetActive(false);
+        }
     }
 }

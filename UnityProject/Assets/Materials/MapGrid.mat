@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_GridRectangularTransparent
+  m_Name: MapGrid
   m_Shader: {fileID: -6465566751694194690, guid: 9c7f54fe3f7f55f4a8eec95bf4603752, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

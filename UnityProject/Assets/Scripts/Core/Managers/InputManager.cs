@@ -33,5 +33,19 @@ namespace NordicTowerDefense.Core.Managers
 
             return _lastPosition;
         }
+
+        public bool IsMap()
+        {
+            Vector2 mousePosition = _mouse.position.ReadValue();
+            Ray ray = _mainCamera.ScreenPointToRay(mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100, _placementLayermask))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
