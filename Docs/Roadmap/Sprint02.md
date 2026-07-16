@@ -293,7 +293,8 @@ Status: Planned
 
 Completed:
 
-- TBD
+- Map Grid Shader
+- Cursor Cell Indicator Shader
 
 Lessons Learned:
 
