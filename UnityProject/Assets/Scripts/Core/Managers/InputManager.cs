@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,8 @@ namespace NordicTowerDefense.Core.Managers
     {
         [SerializeField] private Camera _mainCamera;
         [SerializeField] private LayerMask _placementLayermask;
+
+        public event Action OnClicked, OnExit;
 
         private Vector3 _lastPosition;
         private Mouse _mouse = Mouse.current;
@@ -18,6 +21,11 @@ namespace NordicTowerDefense.Core.Managers
                 Debug.LogError("Mause is not found!");
                 enabled = false;
             }
+        }
+
+        private void Update()
+        {
+            
         }
 
         public Vector3 GetSelectedMapPosition()
