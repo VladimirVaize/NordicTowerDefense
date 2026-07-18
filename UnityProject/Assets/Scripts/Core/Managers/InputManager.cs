@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace NordicTowerDefense.Core.Managers
@@ -11,9 +12,9 @@ namespace NordicTowerDefense.Core.Managers
 
         public event Action OnClicked, OnExit;
 
-        private InputControls _inputSystem;
         private Vector3 _lastPosition;
         private Mouse _mouse = Mouse.current;
+        private Keyboard _keyboard = Keyboard.current;
 
         private void Awake()
         {
@@ -23,15 +24,27 @@ namespace NordicTowerDefense.Core.Managers
                 enabled = false;
             }
 
-            _inputSystem = new InputControls();
-
-            _inputSystem.Gameplay.Select.performed += 
+            if (_keyboard == null)
+            {
+                Debug.LogError("Keyboard is not found!");
+                enabled = false;
+            }
         }
 
         private void Update()
         {
-            
+            if (_mouse.leftButton.wasPressedThisFrame)
+            {
+                OnClicked?.Invoke();
+            }
+
+            if (_keyboard.escapeKey.wasPressedThisFrame)
+            {
+                OnExit?.Invoke();
+            }
         }
+
+        public bool IsPointerOverUI() => EventSystem.current.IsPointerOverGameObject();
 
         public Vector3 GetSelectedMapPosition()
         {
@@ -60,5 +73,7 @@ namespace NordicTowerDefense.Core.Managers
 
             return false;
         }
+
+        
     }
 }
