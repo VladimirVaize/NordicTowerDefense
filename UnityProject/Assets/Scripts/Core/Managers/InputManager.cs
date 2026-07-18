@@ -11,6 +11,7 @@ namespace NordicTowerDefense.Core.Managers
 
         public event Action OnClicked, OnExit;
 
+        private InputControls _inputSystem;
         private Vector3 _lastPosition;
         private Mouse _mouse = Mouse.current;
 
@@ -21,6 +22,10 @@ namespace NordicTowerDefense.Core.Managers
                 Debug.LogError("Mause is not found!");
                 enabled = false;
             }
+
+            _inputSystem = new InputControls();
+
+            _inputSystem.Gameplay.Select.performed += 
         }
 
         private void Update()
