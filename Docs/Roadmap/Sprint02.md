@@ -295,6 +295,7 @@ Completed:
 
 - Map Grid Shader
 - Cursor Cell Indicator Shader
+- Object Placemend System
 
 Lessons Learned:
 
