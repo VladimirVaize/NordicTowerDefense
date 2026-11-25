@@ -4,10 +4,6 @@ using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
-    //Ускорение не работает...
-    //Переделать также как и Move в Update()
-    //Перенести содержимое SpeedBoost(), LateUpdate()
-
     [SerializeField] private float _speed;
     [SerializeField] private float _maxSpeed;
 
@@ -17,8 +13,6 @@ public class CameraMovement : MonoBehaviour
     private void Awake()
     {
         _inputSystem = new InputSystem_Actions();
-
-        _inputSystem.Camera.SpeedBoost.performed += SpeedBoost;
 
         _speed = Math.Min(_speed, _maxSpeed);
         _currentSpeed = _speed;
@@ -38,18 +32,12 @@ public class CameraMovement : MonoBehaviour
     {
         Vector2 moveInput = _inputSystem.Camera.Move.ReadValue<Vector2>();
         transform.Translate(new Vector3(moveInput.x, 0, moveInput.y) * Time.deltaTime * _currentSpeed);
-    }
 
-    private void LateUpdate()
-    {
-        _currentSpeed = _speed;
-    }
+        float speedBoostInput = _inputSystem.Camera.SpeedBoost.ReadValue<float>();
 
-    private void SpeedBoost(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
+        if (speedBoostInput > 0.2f)
             _currentSpeed = _maxSpeed;
-        }
+        else
+            _currentSpeed = _speed;
     }
 }
