@@ -11,6 +11,7 @@ TagManager:
   - Road
   - Grid
   - Projectile
+  - Terrain
   layers:
   - Default
   - TransparentFX
