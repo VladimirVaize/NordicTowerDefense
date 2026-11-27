@@ -4,22 +4,33 @@ using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField, Range(10, 20)] private float _speed;
     [SerializeField, Range(25, 50)] private float _maxSpeed;
+
+    [Header("Zoom")]
     [SerializeField, Range(1, 10)] private float _zoomStep;
     [SerializeField, Range(30, 60)] private float _maxCameraHeight;
     [SerializeField, Range(5, 25)] private float _minCameraHeight;
-    [SerializeField] private float _angleSpep;
+
+    [Header("Camera Angle")]
+    [SerializeField] private float _angleStep;
     [SerializeField] private float _maxCameraAngle;
     [SerializeField] private float _minCameraAngle;
+
+    [Header("Terrain")]
     [SerializeField] private LayerMask _terrainMask;
 
+    private const float RayLength = 200f;
+
     private float _currentSpeed;
-    private float _currentCameraHeight = 30;
-    private float _currentCameraAngle = 45;
-    private Vector2 _startMousePosForChangeAngle;
+    private float _targetCameraHeight = 30f;
+    private float _currentCameraAngle = 45f;
+
+    private Vector2 _angleDragStartMousePos;
     private Vector2 _mousePosition;
     private Vector2 _currentScreenResolution;
+
     private InputSystem_Actions _inputSystem;
 
     private void Awake()
@@ -87,24 +98,24 @@ public class CameraMovement : MonoBehaviour
         if (GetCameraHeight() < 0)
             return;
 
-        if (_currentCameraHeight < _minCameraHeight)
-            _currentCameraHeight = _minCameraHeight;
+        if (_targetCameraHeight < _minCameraHeight)
+            _targetCameraHeight = _minCameraHeight;
 
-        if (_currentCameraHeight > _maxCameraHeight)
-            _currentCameraHeight = _maxCameraHeight;
+        if (_targetCameraHeight > _maxCameraHeight)
+            _targetCameraHeight = _maxCameraHeight;
 
-        float deltaY = _currentCameraHeight - GetCameraHeight();
+        float deltaY = _targetCameraHeight - GetCameraHeight();
         Vector3 cameraPosition = gameObject.transform.position;
         cameraPosition.y = Mathf.Lerp(cameraPosition.y, cameraPosition.y + deltaY, Time.deltaTime * 5);
         gameObject.transform.position = cameraPosition;
 
         if(zoomInput.y < 0)
         {
-            _currentCameraHeight = Math.Min(_currentCameraHeight + _zoomStep, _maxCameraHeight);
+            _targetCameraHeight = Math.Min(_targetCameraHeight + _zoomStep, _maxCameraHeight);
         }
         else if(zoomInput.y > 0)
         {
-            _currentCameraHeight = Math.Max(_currentCameraHeight - _zoomStep, _minCameraHeight); 
+            _targetCameraHeight = Math.Max(_targetCameraHeight - _zoomStep, _minCameraHeight); 
         }
     }
 
@@ -115,19 +126,13 @@ public class CameraMovement : MonoBehaviour
 
         Ray ray = new Ray(cameraPosition, directionToBottom);
         RaycastHit hit;
-        float maxDistance = 150;
 
-        if(Physics.Raycast(ray, out hit, maxDistance, _terrainMask))
+        if(Physics.Raycast(ray, out hit, RayLength, _terrainMask))
         {
             Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.green);
-            if (hit.collider.CompareTag("Terrain"))
-            {
-                float cameraHeight = cameraPosition.y - hit.point.y;
 
-                return cameraHeight;
-            }
-            else
-                Debug.Log("NoTerrain");
+            float cameraHeight = cameraPosition.y - hit.point.y;
+            return cameraHeight;
         }
 
         return -1;

@@ -35875,13 +35875,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980846412}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2045226017}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1980846416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37198,12 +37198,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraMovement
   _speed: 15
   _maxSpeed: 30
-  _zoomStep: 5
+  _zoomStep: 3
   _maxCameraHeight: 50
   _minCameraHeight: 10
-  _angleSpep: 5
-  _maxCameraAngle: 0
-  _minCameraAngle: 75
+  _angleStep: 0.2
+  _maxCameraAngle: 75
+  _minCameraAngle: 10
   _terrainMask:
     serializedVersion: 2
     m_Bits: 64
