@@ -1102,9 +1102,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Zoom"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""fd4ddaea-1122-496e-991c-07dc8037d07d"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Angle"",
+                    ""type"": ""Button"",
+                    ""id"": ""1291f59f-d6a7-482d-8b0b-aed05ed44fdf"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -1288,9 +1297,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Gamepad 2D Vector"",
-                    ""id"": ""35fd93f3-6f72-4f31-895c-983fa4685f6d"",
-                    ""path"": ""2DVector"",
+                    ""name"": ""Gamepad 1D Axis"",
+                    ""id"": ""c26b04e4-ed8b-4411-a89e-472fb5d89239"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1299,8 +1308,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""91a8a281-da58-4cf3-a516-2ab318f7d415"",
+                    ""name"": ""negative"",
+                    ""id"": ""eb4308f8-4b18-4d03-8d35-1657d058b847"",
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1310,8 +1319,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""200b1e67-46d4-490b-8009-7c97ad064ee3"",
+                    ""name"": ""positive"",
+                    ""id"": ""53ff4635-5120-4c09-8b3b-7177f1cd2755"",
                     ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1321,9 +1330,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Joystick 2D Vector"",
-                    ""id"": ""a6f4916e-050f-4e5e-988a-a9635384c61a"",
-                    ""path"": ""2DVector"",
+                    ""name"": ""Joystick 1D Axis"",
+                    ""id"": ""f2846349-d982-4aac-821d-44105eefcb06"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1332,8 +1341,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""6524374b-0460-4bba-9f87-703a2ed88e88"",
+                    ""name"": ""negative"",
+                    ""id"": ""f3163647-bbbb-4975-8481-d66422311792"",
                     ""path"": ""<Joystick>/stick/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1343,15 +1352,59 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""53a62c80-95e3-4f98-b0b4-108c141da980"",
+                    ""name"": ""positive"",
+                    ""id"": ""2cf23627-e5bf-4b77-b1eb-90b3f8bb4c28"",
                     ""path"": ""<Joystick>/stick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Joystick"",
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad 1D Axis"",
+                    ""id"": ""00517c31-2fc2-445c-ab92-1f9db33b4fc0"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Angle"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""c2d5c1df-2660-4591-abf9-03c1a7601a90"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Angle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""c68ef69b-231d-4b71-9b02-6d902fb22181"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Angle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb4bc9af-0d91-45ba-8c4c-a620c536261b"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Angle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1447,6 +1500,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Camera_Move = m_Camera.FindAction("Move", throwIfNotFound: true);
         m_Camera_SpeedBoost = m_Camera.FindAction("SpeedBoost", throwIfNotFound: true);
         m_Camera_Zoom = m_Camera.FindAction("Zoom", throwIfNotFound: true);
+        m_Camera_Angle = m_Camera.FindAction("Angle", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1911,6 +1965,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Camera_Move;
     private readonly InputAction m_Camera_SpeedBoost;
     private readonly InputAction m_Camera_Zoom;
+    private readonly InputAction m_Camera_Angle;
     /// <summary>
     /// Provides access to input actions defined in input action map "Camera".
     /// </summary>
@@ -1934,6 +1989,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Camera/Zoom".
         /// </summary>
         public InputAction @Zoom => m_Wrapper.m_Camera_Zoom;
+        /// <summary>
+        /// Provides access to the underlying input action "Camera/Angle".
+        /// </summary>
+        public InputAction @Angle => m_Wrapper.m_Camera_Angle;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1969,6 +2028,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Zoom.started += instance.OnZoom;
             @Zoom.performed += instance.OnZoom;
             @Zoom.canceled += instance.OnZoom;
+            @Angle.started += instance.OnAngle;
+            @Angle.performed += instance.OnAngle;
+            @Angle.canceled += instance.OnAngle;
         }
 
         /// <summary>
@@ -1989,6 +2051,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Zoom.started -= instance.OnZoom;
             @Zoom.performed -= instance.OnZoom;
             @Zoom.canceled -= instance.OnZoom;
+            @Angle.started -= instance.OnAngle;
+            @Angle.performed -= instance.OnAngle;
+            @Angle.canceled -= instance.OnAngle;
         }
 
         /// <summary>
@@ -2264,5 +2329,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnZoom(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Angle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAngle(InputAction.CallbackContext context);
     }
 }
